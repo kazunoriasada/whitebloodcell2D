@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     
     //void はメソッド。メソッドとは、意味のある処理ブロックごとに分解して名前を付ける仕組みのこと
     //void = 返値なし
-    public void SetGameManagement (GameDirector manager)
+    public void SetGameManager (GameDirector manager)
     {
         //this =自分自身のインスタンスを指す。メンバー変数とローカル変数が同じ名前の場合、
         //ローカル変数の方が早めに呼ばれてしまうため、メンバー変数を活用する場合は[this]を付ける

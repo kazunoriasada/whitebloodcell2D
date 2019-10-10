@@ -9,7 +9,7 @@ public class GameDirector : MonoBehaviour
     private GameObject Enemy;
     private List<GameObject> enemyList;
 
-    private const int MAX_COUNT = 30;
+    private const int MAX_COUNT = 150;
     private int count;
     
     //bool = 変数の型名 trueまたはfalse
@@ -31,7 +31,7 @@ public class GameDirector : MonoBehaviour
             //var = 長い型名の代わりに var を使うとコードをスッキリする
             //var = 右辺から型が明らかでない場合、var は推奨されない
             var go = Instantiate(Enemy);
-            go.GetComponent<Enemy>().SetGameManagement(this);
+            go.GetComponent<Enemy>().SetGameManager(this);
             if(go == null)
             {
                  Debug.Log("生成できていない");
@@ -44,7 +44,7 @@ public class GameDirector : MonoBehaviour
 
             //random
             int positionX = random.Next(-150, 150);
-            int positionY = random.Next(-150, 150);
+            int positionY = random.Next(0, 150);
             
             go.GetComponent<Transform>().position = new Vector3(
                 positionX,positionY,
