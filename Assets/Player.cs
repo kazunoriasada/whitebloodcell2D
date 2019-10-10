@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -47,6 +48,14 @@ public class Player : MonoBehaviour
         this.mainCamera             = Camera.main;
         this.mainCameraTransform    = this.mainCamera.transform;
     }
+    public void Update() 
+    {
+        //画面外に出たら最初から
+        if(transform.position.y < -10)
+        {
+            SceneManager.LoadScene("GameScene");
+        }
+    }
 
     private Vector3 GetMousePosition()
     {
@@ -90,4 +99,5 @@ public class Player : MonoBehaviour
     {
         this.physics.AddForce(force, ForceMode2D.Impulse);
     }
+
 }
