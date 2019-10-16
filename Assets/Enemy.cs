@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
-        //this.manager.GetPoint();
+        this.manager.GetPoint();
         Destroy(gameObject);
     }
 }
