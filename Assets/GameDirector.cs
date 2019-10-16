@@ -7,8 +7,17 @@ public class GameDirector : MonoBehaviour
     //SerializeField = privateフィールドをインスペクタに表示する際に付けるおまじない
     [SerializeField]
     private GameObject Enemy;
+   //リストの作成
+   //リストはなぜ作るのか？
     private List<GameObject> enemyList;
 
+    [SerializeField]
+    Text KillCount;
+
+    private const int POINT_VALUE = 1;
+    private int point;
+
+    //const = 属性に指定するパラメータや列挙型の定義など、コンパイル時に値が必要な場合にのみ使用する
     private const int MAX_COUNT = 500;
     private int count;
     
@@ -42,7 +51,7 @@ public class GameDirector : MonoBehaviour
                 Debug.Log("EnemyがAddされていない");
             }
 
-            //random
+            //Enemyの出現ポイントの指定
             int positionX = random.Next(-150, 150);
             int positionY = random.Next(0, 150);
             
@@ -54,12 +63,30 @@ public class GameDirector : MonoBehaviour
             enemyList.Add(go);
         }
 
+        ount = MAX_COUNT;
+        frame = 0;
+        gamePlay = true;
+
+        SetPointText();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void SetPointText()
+    {
+        if(gamePlay == false) return;
+        this.KillCount.text = point.ToString();
+    }
+
+    public void GetPoint()
+    {
+        if(gamePlay == false) return;
+        this.point += POINT_VALUE;
     }
 }
 
