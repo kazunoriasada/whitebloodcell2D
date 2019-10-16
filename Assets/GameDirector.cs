@@ -9,7 +9,7 @@ public class GameDirector : MonoBehaviour
     private GameObject Enemy;
     private List<GameObject> enemyList;
 
-    private const int MAX_COUNT = 150;
+    private const int MAX_COUNT = 500;
     private int count;
     
     //bool = 変数の型名 trueまたはfalse
